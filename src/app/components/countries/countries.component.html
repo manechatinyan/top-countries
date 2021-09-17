@@ -1,0 +1,10 @@
+<div class="container">
+    <h2>Country list</h2>
+    <div class="countries">
+        <ol>
+            <li class="country" *ngFor="let country of countries">
+                <app-country [country]="country"></app-country>
+            </li>
+        </ol>
+    </div>
+</div>
