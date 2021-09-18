@@ -1,10 +1,14 @@
 <div class="container">
     <h2>Country list</h2>
+    <div class="search">
+        <input type="text" [(ngModel)]="query" placeholder="Search by name">
+    </div>
     <div class="countries">
-        <ol>
-            <li class="country" *ngFor="let country of countries">
+        <ol *ngIf="(countries | filter: 'name' : query) as results">
+            <li class="country" *ngFor="let country of results">
                 <app-country [country]="country"></app-country>
             </li>
+            <p *ngIf="!results.length">No items match your search.</p>
         </ol>
     </div>
 </div>
