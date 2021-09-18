@@ -7,6 +7,9 @@ import { Country } from 'src/app/interfaces/country';
   styleUrls: ['./countries.component.scss']
 })
 export class CountriesComponent {
+  public filter: any = '';
+  public query: string = '';
+
   countries: Country[] = [
     {
       name: 'United States Minor Outlying Islands',
@@ -33,5 +36,4 @@ export class CountriesComponent {
       capital: 'Mexico City',
     },
   ];
-
 }
