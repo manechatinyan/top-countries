@@ -1,0 +1,19 @@
+.voting-wrapper {
+    margin-left: 20px;
+    min-width: 55px;
+
+    p {
+        margin: 0 0 10px 0;
+    }
+}
+
+.votes {
+    display: flex;
+    justify-content: space-around;
+}
+
+.votes img {
+    height: 20px;
+    width: 20px;
+    cursor: pointer;
+}
