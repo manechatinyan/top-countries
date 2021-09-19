@@ -7,6 +7,7 @@
         <ol *ngIf="(countries | filter: 'name' : query) as results">
             <li class="country" *ngFor="let country of results">
                 <app-country [country]="country"></app-country>
+                <app-voting [itemName]="country.name" [votes]="votes" (voted)="voted($event)"></app-voting>
             </li>
             <p *ngIf="!results.length">No items match your search.</p>
         </ol>

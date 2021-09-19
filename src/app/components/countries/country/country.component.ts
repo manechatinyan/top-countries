@@ -8,7 +8,7 @@ import { Country } from 'src/app/interfaces/country';
 })
 export class CountryComponent implements OnInit {
 
-  @Input() country: Country;
+  @Input() country!: Country;
 
   constructor() { }
 

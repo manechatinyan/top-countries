@@ -6,6 +6,7 @@ import { CountriesComponent } from './components/countries/countries.component';
 import { CountryComponent } from './components/countries/country/country.component';
 import { FormsModule } from '@angular/forms';
 import { FilterPipe } from './pipes/filter.pipe';
+import { VotingComponent } from './components/voting/voting.component';
 
 @NgModule({
   declarations: [
@@ -13,6 +14,7 @@ import { FilterPipe } from './pipes/filter.pipe';
     CountriesComponent,
     CountryComponent,
     FilterPipe,
+    VotingComponent,
   ],
   imports: [
     BrowserModule,
