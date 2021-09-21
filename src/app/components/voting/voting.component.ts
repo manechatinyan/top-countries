@@ -17,7 +17,8 @@ export class VotingComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.sum = this.votes[this.itemName].sum || 0;
+    let vote = this.votes[this.itemName];
+    this.sum = vote ? vote.sum : 0;
   }
 
   public upvote(): void {

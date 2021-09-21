@@ -9,9 +9,11 @@ h2 {
     text-align: center;
 }
 
-.search {
+.search, .loading {
     margin-left: 40px;
+}
 
+.search {
     input {
         width: 400px;
         height: 25px;
