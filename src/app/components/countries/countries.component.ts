@@ -1,49 +1,37 @@
 import { Component, OnInit } from '@angular/core';
 import { Country } from 'src/app/interfaces/country';
 import { StorageService } from '../../services/storage.service';
+import { CountriesService } from '../../services/countries.service';
 
 @Component({
   selector: 'app-countries',
   templateUrl: './countries.component.html',
   styleUrls: ['./countries.component.scss']
 })
-export class CountriesComponent {
+export class CountriesComponent implements OnInit {
   public query = '';
   public votes: any;
-  public countries: Country[] = [
-    {
-      name: 'United States Minor Outlying Islands',
-      capital: '',
-    },
-    {
-      name: 'Tanzania, United Republic of',
-      capital: 'Dodoma',
-    },
-    {
-      name: 'United Arab Emirates',
-      capital: 'Abu Dhabi',
-    },
-    {
-      name: 'United Kingdom of Great Britain and Northern Ireland',
-      capital: 'London',
-    },
-    {
-      name: 'United States of America',
-      capital: 'Washington, D.C.',
-    },
-    {
-      name: 'Mexico',
-      capital: 'Mexico City',
-    },
-  ];
+  public countries: Country[] = [];
+  public isLoading = false;
 
-  constructor(private storageService: StorageService) {
+  constructor(private storageService: StorageService, private countriesService: CountriesService) {
     this.votes = this.storageService.getItem('votes') || {};
   }
 
   ngOnInit(): void {
-    this.sort();
-   }
+    this.getCountries();
+  }
+
+  private getCountries() {
+    this.isLoading = true;
+    this.countriesService.getCountries()
+      .subscribe(data => {
+        this.countries = data as Country[];
+        this.isLoading = false;
+
+        this.sort();
+      });
+  }
 
   public voted(votes: any): void {
     this.votes = votes;
