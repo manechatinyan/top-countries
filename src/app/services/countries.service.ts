@@ -9,6 +9,6 @@ export class CountriesService {
   constructor(private httpService: HttpService) { }
 
   public getCountries() {
-    return this.httpService.get('?fields=name;capital');
+    return this.httpService.get('countries/capital');
   }
 }

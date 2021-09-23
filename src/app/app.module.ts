@@ -8,6 +8,7 @@ import { FormsModule } from '@angular/forms';
 import { FilterPipe } from './pipes/filter.pipe';
 import { VotingComponent } from './components/voting/voting.component';
 import { HttpClientModule } from '@angular/common/http';
+import { VotingSortPipe } from './pipes/voting-sort.pipe';
 
 
 @NgModule({
@@ -17,6 +18,7 @@ import { HttpClientModule } from '@angular/common/http';
     CountryComponent,
     FilterPipe,
     VotingComponent,
+    VotingSortPipe,
   ],
   imports: [
     BrowserModule,

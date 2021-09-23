@@ -28,8 +28,15 @@ h2 {
     }
 }
 
-.country {
-    display: flex;
-    align-items: center;
-    margin: 10px 0;
+ol {
+    list-style: none;
+
+    .country {
+        margin: 10px 0;
+
+        div {
+            display: flex;
+            align-items: center;
+        }
+    }
 }

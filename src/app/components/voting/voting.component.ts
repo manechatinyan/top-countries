@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { Vote } from 'src/app/interfaces/vote';
+import { Country } from 'src/app/interfaces/country';
 
 @Component({
   selector: 'app-voting',
@@ -7,8 +7,7 @@ import { Vote } from 'src/app/interfaces/vote';
   styleUrls: ['./voting.component.scss']
 })
 export class VotingComponent implements OnInit {
-  @Input() itemName!: string;
-  @Input() votes: any;
+  @Input() country!: Country;
   @Output() voted: EventEmitter<any> = new EventEmitter();
 
   public sum!: number;
@@ -17,7 +16,7 @@ export class VotingComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    let vote = this.votes[this.itemName];
+    let vote = this.country.vote;
     this.sum = vote ? vote.sum : 0;
   }
 
@@ -36,11 +35,10 @@ export class VotingComponent implements OnInit {
   }
 
   private setVote(voteSum: number): void {
-    let vote: Vote = {
+    this.country.vote = {
       sum: voteSum,
       timestamp: Date.now()
-    }
-    this.votes[this.itemName] = vote;
-    this.voted.emit(this.votes);
+    };
+    this.voted.emit(this.country);
   }
 }

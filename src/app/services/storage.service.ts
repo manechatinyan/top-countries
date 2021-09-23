@@ -8,11 +8,11 @@ export class StorageService {
   constructor() { }
 
   public getItem(key: any): any {
-    let data = sessionStorage.getItem(key);
+    let data = localStorage.getItem(key);
     return data ? JSON.parse(data) : null;
   }
 
   public setItem(key: any, data: any): void {
-    sessionStorage.setItem(key, JSON.stringify(data));
+    localStorage.setItem(key, JSON.stringify(data));
   }
 }
