@@ -1,3 +1,3 @@
 export let Config = {
-    apiUrl: 'https://restcountries.eu/rest/v2/'
+    apiUrl: 'https://countriesnow.space/api/v0.1/'
 }

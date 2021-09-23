@@ -1,4 +1,7 @@
+import { Vote } from './vote';
+
 export interface Country {
     name: string,
-    capital: string
+    capital: string,
+    vote: Vote
 }

@@ -4,12 +4,14 @@
         <input type="text" [(ngModel)]="query" placeholder="Search by name">
     </div>
     <div class="countries">
-        <ol *ngIf="(countries | filter: 'name' : query) as results">
-            <li class="country" *ngFor="let country of results">
-                <app-country [country]="country"></app-country>
-                <app-voting [itemName]="country.name" [votes]="votes" (voted)="voted($event)"></app-voting>
+        <ol *ngIf="(countries | filter: 'name' : query) | votingSort as filteredCountries">
+            <li class="country" *ngFor="let country of filteredCountries; let i = index">
+                <div *ngIf="i < showCount">
+                    <app-country [country]="country"></app-country>
+                    <app-voting [country]="country" (voted)="voted($event)"></app-voting>
+                </div>
             </li>
-            <p *ngIf="countries.length && !results.length">No items match your search.</p>
+            <p *ngIf="countries.length && !filteredCountries.length">No items match your search.</p>
         </ol>
         <p *ngIf="isLoading" class="loading">Loading...</p>
     </div>
